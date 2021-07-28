@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("addressBook")
 public class AddressBookController {
 
-    @RequestMapping(value = {"","/","/get"})
-    public ResponseEntity<String> getAddressBookData(){
-        return new ResponseEntity<>("Get Call Success", HttpStatus.OK);
+    @RequestMapping(value={" ", "/","/get"})
+    public ResponseEntity<String> getAddressBookData() {
+        return new ResponseEntity<String>("Get Call Success", HttpStatus.OK);
     }
 
     @GetMapping("/get/{Id}")

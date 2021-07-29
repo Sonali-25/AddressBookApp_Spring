@@ -41,10 +41,11 @@ public class AddressBookController {
         ResponseDTO respDTO = new ResponseDTO("Created AddressBook Data Successfully", bookData);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
-    @PutMapping("/update")
-    public ResponseEntity<ResponseDTO> updateAddressBookData(@RequestBody AddressBookDTO addressbookDTO) {
+    @PutMapping("/update/{Id}")
+    public ResponseEntity<ResponseDTO> updateAddressBookData(@PathVariable ("id") int id,
+                                                             @RequestBody AddressBookDTO addressbookDTO) {
         AddressBookData bookData = null;
-        bookData = addressbookservice.updateAddressBookData(addressbookDTO);
+        bookData = addressbookservice.updateAddressBookData(id,addressbookDTO);
         ResponseDTO respDTO = new ResponseDTO("Updated AddressBook Data Successfully", bookData);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }

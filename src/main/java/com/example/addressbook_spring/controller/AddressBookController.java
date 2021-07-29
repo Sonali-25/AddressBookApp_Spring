@@ -58,4 +58,51 @@ public class AddressBookController {
                 "Deleted Id : "+ id);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
+    @GetMapping("/countbyId")
+    public ResponseEntity<ResponseDTO> getCountById() {
+        long countById = 0;
+        countById = addressbookservice.getCountById();
+        ResponseDTO respDTO = new ResponseDTO("Get Call for count by Id", countById);
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/countbyState/{State}")
+    public ResponseEntity<ResponseDTO> getCountByState(@PathVariable("State") String state) {
+        long countByState = 0;
+        countByState = addressbookservice.getCountByState(state);
+        ResponseDTO respDTO = new ResponseDTO("Get Call for count by State", countByState);
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/countbyCity/{City}")
+    public ResponseEntity<ResponseDTO> getCountByCity(@PathVariable("City") String city) {
+        long countByCity = 0;
+        countByCity = addressbookservice.getCountByCity(city);
+        ResponseDTO respDTO = new ResponseDTO("Get Call for count by City", countByCity);
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/getByState/{State}")
+    public ResponseEntity<ResponseDTO> getAddressBookDataByState(@PathVariable("State") String state){
+        List<AddressBookData> bookDataList = null;
+        bookDataList = addressbookservice.getAddressBookDataByState(state);
+        ResponseDTO respDTO = new ResponseDTO("Get Call for get data by state", bookDataList);
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/getByCity/{City}")
+    public ResponseEntity<ResponseDTO> getAddressBookDataByCity(@PathVariable("City") String city){
+        List<AddressBookData> bookDataList = null;
+        bookDataList = addressbookservice.getAddressBookDataByCity(city);
+        ResponseDTO respDTO = new ResponseDTO("Get Call for get data by city", bookDataList);
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/getByNameKeyword/{namekeyword}")
+    public ResponseEntity<ResponseDTO> getAddressBookDataByNameKeyword(@PathVariable("namekeyword") String namekeyword){
+        List<AddressBookData> bookDataList = null;
+        bookDataList = addressbookservice.getAddressBookDataByNameKeyword(namekeyword);
+        ResponseDTO respDTO = new ResponseDTO("Get Call for get data by keyword", bookDataList);
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
 }

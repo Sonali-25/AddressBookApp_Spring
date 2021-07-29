@@ -53,4 +53,33 @@ public class AddressBookService implements IAddressBookService {
         AddressBookData bookData = this.getAddressBookDataById(id);
         addressBookRepo.delete(bookData);
     }
+    @Override
+    public long getCountById() {
+        return addressBookRepo.count();
+    }
+
+    @Override
+    public long getCountByState(String state) {
+        return addressBookRepo.countByState(state);
+    }
+
+    @Override
+    public long getCountByCity(String city) {
+        return addressBookRepo.countByCity(city);
+    }
+
+    @Override
+    public List<AddressBookData> getAddressBookDataByState(String state) {
+        return addressBookRepo.getAddressBookDataByState(state);
+    }
+
+    @Override
+    public List<AddressBookData> getAddressBookDataByCity(String city) {
+        return addressBookRepo.getAddressBookDataByCity(city);
+    }
+
+    @Override
+    public List<AddressBookData> getAddressBookDataByNameKeyword(String keyword) {
+        return addressBookRepo.getAddressBookDataByNameKeyword(keyword);
+    }
 }

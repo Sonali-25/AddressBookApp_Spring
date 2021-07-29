@@ -4,10 +4,16 @@ import com.example.addressbook_spring.dto.AddressBookDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="addressBook_Data")
 @Data
 @NoArgsConstructor
 public class AddressBookData {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     private String name;
     private String address;

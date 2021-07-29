@@ -2,6 +2,7 @@ package com.example.addressbook_spring.service;
 
 
 import com.example.addressbook_spring.dto.AddressBookDTO;
+import com.example.addressbook_spring.exceptions.AddressBookException;
 import com.example.addressbook_spring.model.AddressBookData;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,11 @@ public class AddressBookService implements IAddressBookService {
 
     @Override
     public AddressBookData getAddressBookDataById(int id) {
-        return addressBookDataList.get(id-1);
+        return addressBookDataList.stream()
+                .filter(bookData -> bookData.getId()==id)
+                .findFirst()
+                .orElseThrow(() -> new AddressBookException("Person Not Found"));
     }
-
     @Override
     public AddressBookData createAddressBookData(AddressBookDTO bookDTO) {
         AddressBookData bookData = null;
@@ -40,6 +43,7 @@ public class AddressBookService implements IAddressBookService {
     }
     @Override
     public void deleteAddressBookData(int id) {
-        addressBookDataList.remove(id-1);
+        AddressBookData bookData = this.getAddressBookDataById(id);
+        addressBookDataList.remove(bookData);
     }
 }

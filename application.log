@@ -1,0 +1,6 @@
+2021-07-29 13:07:09.998  INFO 10004 --- [restartedMain] c.e.a.AddressBookSpringApplication       : Starting AddressBookSpringApplication using Java 16.0.1 on DESKTOP-0RG9E2N with PID 10004 (D:\AddressBook_Spring\target\classes started by sonali in D:\AddressBook_Spring)
+2021-07-29 13:07:10.014 DEBUG 10004 --- [restartedMain] c.e.a.AddressBookSpringApplication       : Running with Spring Boot v2.5.3, Spring v5.3.9
+2021-07-29 13:07:10.014  INFO 10004 --- [restartedMain] c.e.a.AddressBookSpringApplication       : No active profile set, falling back to default profiles: default
+2021-07-29 13:07:42.092  WARN 10004 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-07-29 13:07:44.562  INFO 10004 --- [restartedMain] c.e.a.AddressBookSpringApplication       : Started AddressBookSpringApplication in 43.474 seconds (JVM running for 68.153)
+2021-07-29 13:07:44.578  INFO 10004 --- [restartedMain] c.e.a.AddressBookSpringApplication       : Address Book App Started

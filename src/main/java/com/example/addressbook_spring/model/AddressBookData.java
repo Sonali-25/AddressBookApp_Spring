@@ -22,8 +22,26 @@ public class AddressBookData {
     public int zipcode;
     public String phoneNumber;
 
+    public AddressBookData(AddressBookDTO addressbookDTO) {
+        this.name = addressbookDTO.name;
+        this.address = addressbookDTO.address;
+        this.city = addressbookDTO.city;
+        this.state = addressbookDTO.state;
+        this.zipcode = addressbookDTO.zipcode;
+        this.phoneNumber = addressbookDTO.phoneNumber;
+    }
+
     public AddressBookData(int id, AddressBookDTO addressbookDTO) {
         this.id = id;
+        this.name = addressbookDTO.name;
+        this.address = addressbookDTO.address;
+        this.city = addressbookDTO.city;
+        this.state = addressbookDTO.state;
+        this.zipcode = addressbookDTO.zipcode;
+        this.phoneNumber = addressbookDTO.phoneNumber;
+    }
+
+    public void updateAddressBookData(AddressBookDTO addressbookDTO) {
         this.name = addressbookDTO.name;
         this.address = addressbookDTO.address;
         this.city = addressbookDTO.city;

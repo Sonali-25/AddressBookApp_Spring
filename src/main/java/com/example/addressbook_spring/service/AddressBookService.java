@@ -39,8 +39,13 @@ public class AddressBookService implements IAddressBookService {
         AddressBookData bookData = this.getAddressBookDataById(id);
         bookData.setName(bookDTO.name);
         bookData.setAddress(bookDTO.address);
+        bookData.setCity(bookDTO.city);
+        bookData.setState(bookDTO.state);
+        bookData.setZipcode(bookDTO.zipcode);
+        bookData.setPhoneNumber(bookDTO.phoneNumber);
         return addressBookDataList.set(id-1,bookData);
     }
+
     @Override
     public void deleteAddressBookData(int id) {
         AddressBookData bookData = this.getAddressBookDataById(id);
